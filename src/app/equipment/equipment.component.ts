@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class EquipmentComponent implements OnInit {
 
   constructor() { }
-
+  equipment: string[] =["Habitat dome",
+  "Drones",
+  "Food containers",
+  "Oxygen tanks"];
   ngOnInit() {
   }
-
+  addEqu(newEqu: string) {
+    this.equipment.push(newEqu);
+  }
 }
