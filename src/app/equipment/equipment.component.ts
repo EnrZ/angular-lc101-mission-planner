@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { isNgTemplate } from '@angular/compiler';
+import { Component, IterableDiffers, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-equipment',
@@ -27,5 +28,21 @@ export class EquipmentComponent implements OnInit {
    ngOnInit() { }
 
    // Code your addItem function here:
-   
+   addItem(item : object) : boolean {
+    this.cargoHold.push(item);
+    this.cargoMass += item["mass"];
+    if(this.maximumAllowedMass - this.cargoMass <= 200)
+      return true;
+    else
+      return false;
+
+ }
+ isActiveToggle(item : object) : boolean {
+   if(this.cargoHold.length < this.maxItems && item["mass"] + this.cargoMass <= this.maximumAllowedMass)
+    return true;
+  else
+    return false;
+  
+ }
+
 }
