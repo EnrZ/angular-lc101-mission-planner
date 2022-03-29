@@ -44,5 +44,11 @@ export class EquipmentComponent implements OnInit {
     return false;
   
  }
+ clearHold(){
+   //clear cargo hold
+    this.cargoHold = [];
+   //reset cargo mass
+   this.cargoMass = 0;
+ }
 
 }
